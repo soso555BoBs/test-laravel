@@ -2,7 +2,7 @@
 
 namespace App;
 
-use App\Contracts\Publisher;
+use Facades\App\Contracts\Publisher;
 use Illuminate\Database\Eloquent\Model;
 
 class Podcast extends Model
@@ -10,13 +10,12 @@ class Podcast extends Model
     /**
      * ポッドキャストの公開
      *
-     * @param  Publisher  $publisher
      * @return void
      */
-    public function publish(Publisher $publisher)
+    public function publish()
     {
         $this->update(['publishing' => now()]);
 
-        $publisher->publish($this);
+        Publisher::publish($this);
     }
 }
