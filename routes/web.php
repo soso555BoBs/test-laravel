@@ -18,3 +18,7 @@ Route::get('/', function () {
 Route::get('/test1/{id?}', function ($id = 0) {
     return $id;
 })->where('id', '[0-9]+');
+
+Route::get('admin/profile', function () {
+    //
+})->middleware(CheckAge::class);
