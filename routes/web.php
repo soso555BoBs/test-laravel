@@ -11,6 +11,19 @@
 |
 */
 
+Route::get('/', function () {
+    return view('welcome');
+});
+
+// soso555 original
+Route::get('/test1/{id?}', function ($id = 0) {
+    return $id;
+})->where('id', '[0-9]+');
+
+Route::get('admin/profile', function () {
+    //
+})->middleware(CheckAge::class);
+
 Route::get('/profile', function () {
     return view('profile')->with('name', 'Soso');
 });
@@ -19,14 +32,6 @@ Route::get('/greeting', function () {
     return view('greeting')->with('name', 'Greeter');
 });
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Auth::routes();
 
-Route::get('/test1/{id?}', function ($id = 0) {
-    return $id;
-})->where('id', '[0-9]+');
-
-Route::get('admin/profile', function () {
-    //
-})->middleware(CheckAge::class);
+Route::get('/home', 'HomeController@index')->name('home');
