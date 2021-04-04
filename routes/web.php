@@ -11,6 +11,14 @@
 |
 */
 
+Route::get('/profile', function () {
+    return view('profile')->with('name', 'Soso');
+});
+
+Route::get('/greeting', function () {
+    return view('greeting')->with('name', 'Greeter');
+});
+
 Route::get('/', function () {
     return view('welcome');
 });

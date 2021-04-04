@@ -165,7 +165,7 @@ return [
          */
         App\Providers\RiakServiceProvider::class,
         App\Providers\ComposerServiceProvider::class,
-
+        App\Providers\ViewServiceProvider::class,
     ],
 
     /*
