@@ -15,7 +15,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// soso555 original
+/*
+ |
+ | soso555 original routes
+ |
+ */
+
 Route::get('/test1/{id?}', function ($id = 0) {
     return $id;
 })->where('id', '[0-9]+');
@@ -35,3 +40,7 @@ Route::get('/greeting', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('post/create', 'PostController@create');
+
+Route::post('post', 'PostController@store');
